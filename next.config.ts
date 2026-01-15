@@ -1,8 +1,11 @@
+import nextMDX from "@next/mdx";
 import type { NextConfig } from "next";
 
+const withMDX = nextMDX({ extension: /\.(md|mdx)$/ });
+
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+  output: "export",                 // 关键：静态站
+  pageExtensions: ["ts", "tsx", "md", "mdx"],
 };
 
-export default nextConfig;
+export default withMDX(nextConfig);
